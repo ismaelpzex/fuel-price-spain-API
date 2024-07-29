@@ -1,7 +1,7 @@
 services:
   database:
     container_name: fuel-price-database 
-    image: postgres:16.2-alpine3.19
+    image: postgis/postgis:latest
     volumes:
       - ./docker-data/db-data:/var/lib/postgresql/data 
       - ./docker-data/db-init:/docker-entrypoint-initdb.d
@@ -11,7 +11,12 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}  # Password for the PostgreSQL user, read from .env file
       POSTGRES_USER: ${POSTGRES_USER}  # Username for the PostgreSQL database, read from .env file
       POSTGRES_DB: ${POSTGRES_DB}  # Name of the default database to create, read from .env file
-    restart: always  
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5  
 
   fuel-price:
     container_name: fuel-price-service
@@ -30,7 +35,8 @@ services:
     ports:
       - "4000:3000"
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     restart: always
 
   # Adminer Database Management Tool
