@@ -1,0 +1,3 @@
+services:
+  fuel-price:
+    entrypoint: ["npm", "run", "tdd:unit"]
