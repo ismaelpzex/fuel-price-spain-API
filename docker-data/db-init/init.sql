@@ -1,13 +1,14 @@
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+CREATE EXTENSION IF NOT EXISTS "postgis";
 
 CREATE TABLE stations (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     cp VARCHAR(10),
     direccion VARCHAR(255),
     horario VARCHAR(255),
-    latitud VARCHAR(20),
-    localidad VARCHAR(100),
-    longitud VARCHAR(20),
+    latitud NUMERIC(9, 6),
+    longitud NUMERIC(9, 6),
+    localidad VARCHAR(255),
     margen VARCHAR(1),
     municipio VARCHAR(100),
     precio_biodiesel VARCHAR(10),
@@ -35,3 +36,5 @@ CREATE TABLE stations (
     idprovincia VARCHAR(10),
     idccaa VARCHAR(10)
 );
+
+CREATE INDEX idx_locations_geom ON stations USING GIST (ST_MakePoint(longitud, latitud));
