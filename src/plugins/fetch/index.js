@@ -17,16 +17,18 @@ module.exports = fp(async (fastify, opts) => {
     const dataFromSot = await getDataFromSot(DATA_URL);
     const transformedData = transformKeys(dataFromSot.ListaEESSPrecio);
     const query =
-      response.rows.length > 0 ? await generateUpdates(transformedData) : await generateInserts(transformedData);
+    response.rows.length > 0 ? await generateUpdates(transformedData) : await generateInserts(transformedData);
     try {
-      await fastify.pg.query(query);
+        await fastify.pg.query(query);
       fastify.log.info("Data fetched successfully");
     } catch (error) {
+        console.log(error)
       fastify.log.error(`Error fetching data: ${error.message}`);
     }
   };
 
   await refresh();
+  fastify.log.info("Data will be updated every 12 hours");
   cron.schedule(
     CRON_SCHEDULE,
     async () => {
