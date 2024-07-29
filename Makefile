@@ -5,12 +5,12 @@ DOCKER_COMPOSE_COMMAND ?= docker-compose
 
 build:
 	@echo "Building API"
-	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml build database adminer
+	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml build database adminer fuel-price
 
 start:
 	@echo "Starting API"
 	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml up -d
-	@${DOCKER_COMPOSE_COMMAND} logs -f database adminer fuel-price
+	@${DOCKER_COMPOSE_COMMAND} logs -f database fuel-price
 
 stop:
 	@echo "Stopping API"

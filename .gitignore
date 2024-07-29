@@ -58,3 +58,4 @@ profile*
 *flamegraph*
 
 docker-data/db-data/*
+.prettierrc
