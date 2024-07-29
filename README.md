@@ -1,4 +1,12 @@
 # FuelPriceSpainAPI
+
+    ______           __   ____       _              _____             _          ___    ____  ____
+   / ____/_  _____  / /  / __ \_____(_)_______     / ___/____  ____ _(_)___     /   |  / __ \/  _/
+  / /_  / / / / _ \/ /  / /_/ / ___/ / ___/ _ \    \__ \/ __ \/ __ `/ / __ \   / /| | / /_/ // /  
+ / __/ / /_/ /  __/ /  / ____/ /  / / /__/  __/   ___/ / /_/ / /_/ / / / / /  / ___ |/ ____// /   
+/_/    \__,_/\___/_/  /_/   /_/  /_/\___/\___/   /____/ .___/\__,_/_/_/ /_/  /_/  |_/_/   /___/   
+                                                     /_/                                          
+
 FuelPriceSpainAPI is a Fastify-based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using Docker and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at [http://localhost:4000/docs](http://localhost:4000/docs).
 
 ## Features
