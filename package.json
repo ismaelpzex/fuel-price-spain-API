@@ -13,13 +13,14 @@
     "@fastify/sensible": "^5.0.0",
     "@fastify/swagger": "^8.14.0",
     "@scalar/fastify-api-reference": "^1.24.48",
+    "axios": "^1.7.2",
     "envalid": "^8.0.0",
     "fastify": "^4.26.1",
     "fastify-cli": "^6.2.1",
     "fastify-plugin": "^4.0.0",
+    "node-cron": "^3.0.3",
     "pg": "^8.12.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "node --test test/**/*.test.js",
     "start": "fastify start -l info --options src/app.js",
