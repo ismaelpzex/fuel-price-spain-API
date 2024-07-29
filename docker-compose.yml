@@ -13,6 +13,26 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}  # Name of the default database to create, read from .env file
     restart: always  
 
+  fuel-price:
+    container_name: fuel-price-service
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./src:/usr/src/app/src:delegated
+      - ./test:/usr/src/app/test:delegated
+      - ./package.json:/usr/src/app/package.json:delegated
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+    ports:
+      - "4000:3000"
+    depends_on:
+      - database
+    restart: always
+
   # Adminer Database Management Tool
   adminer:
     image: adminer
