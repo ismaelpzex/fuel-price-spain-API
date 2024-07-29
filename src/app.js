@@ -8,7 +8,9 @@ const options = {}
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
-
+  await fastify.register(require("@fastify/postgres"), opts.postgres);
+  await fastify.register(require("@fastify/swagger"), opts.swagger);
+  await fastify.register(require("@scalar/fastify-api-reference"), opts.scalar);
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
@@ -27,4 +29,4 @@ module.exports = async function (fastify, opts) {
   })
 }
 
-module.exports.options = options
+module.exports.options = require("./options");
