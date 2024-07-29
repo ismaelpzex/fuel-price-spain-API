@@ -10,7 +10,7 @@ build:
 start:
 	@echo "Starting API"
 	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml up -d
-	@${DOCKER_COMPOSE_COMMAND} logs -f database adminer
+	@${DOCKER_COMPOSE_COMMAND} logs -f database adminer fuel-price
 
 stop:
 	@echo "Stopping API"
