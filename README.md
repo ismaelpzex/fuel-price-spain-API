@@ -6,20 +6,21 @@
 
 ## Español.
 
-FuelPriceSpainAPI es una API RESTful basada en Fastify que proporciona información actualizada sobre los precios de combustible en estaciones de servicio en toda España. Esta API está containerizada utilizando Docker y utiliza PostgreSQL como su base de datos. La aplicación incluye varios endpoints para acceder a los datos de precios de combustible, los cuales se pueden explorar a través de la documentación disponible en `/docs`.
+FuelPriceSpainAPI es una API RESTful basada en [Fastify](https://fastify.dev) que proporciona información actualizada sobre los precios de combustible en estaciones de servicio en toda España. Esta API está containerizada utilizando [Docker](https://www.docker.com) y utiliza [PostgreSQL](https://www.postgresql.org) como su base de datos. La aplicación incluye varios endpoints para acceder a los datos de precios de combustible, los cuales se pueden explorar a través de la documentación disponible en `/docs`.
 
 ## Características
 
-- **Datos en Tiempo Real**: Recupera automáticamente los últimos precios de combustible del sitio web oficial del gobierno español dos veces al día.
+- **Datos en Tiempo Real**: Recupera automáticamente los últimos precios de combustible del [sitio web oficial del gobierno de españa](https://datos.gob.es/es/catalogo/e05068001-precio-de-carburantes-en-las-gasolineras-espanolas) dos veces al día.
 - **Cobertura Integral**: Incluye datos de estaciones de servicio en todas las provincias de España.
-- **Containerizado**: Totalmente containerizado utilizando Docker para una fácil implementación y escalabilidad.
-- **Documentación Detallada**: La documentación de la API se proporciona mediante Scalar, accesible en `/docs`.
+- **Containerizado**: Totalmente containerizado utilizando [Docker](https://www.docker.com)  para una fácil implementación y escalabilidad.
+- **Documentación Detallada**: La documentación de la API se proporciona mediante [Scalar](https://docs.scalar.com), accesible en `/docs`.
 
 ## Prerrequisitos
 
-- Docker
-- Docker Compose
-- Make
+- [Docker](https://www.docker.com) 
+- [Docker compose](https://docs.docker.com/compose/)
+- [Make](https://www.gnu.org/software/make/manual/make.html)
+- [Node](https://nodejs.org/en)
 
 ## Comenzando
 
@@ -45,7 +46,7 @@ FuelPriceSpainAPI es una API RESTful basada en Fastify que proporciona informaci
 
 #### Construir y Arrancar la Aplicación
 
-Para construir y arrancar los contenedores Docker, usa los siguientes comandos:
+Para construir y arrancar los contenedores [Docker](https://www.docker.com) , usa los siguientes comandos:
 
 Construir los contenedores:
 
@@ -69,15 +70,15 @@ make clean
 
 #### Acceso a la API
 
-Documentación de la API: Visita /docs para explorar los endpoints disponibles y su uso.
+Documentación de la API: Visita `/docs` para explorar los endpoints disponibles y su uso.
 
 #### Obtención Automática de Datos
 
-La aplicación recupera automáticamente los últimos precios de combustible del sitio web oficial del gobierno español dos veces al día para asegurar que la base de datos esté actualizada.
+La aplicación recupera automáticamente los últimos precios de combustible del [sitio web oficial del gobierno de españa](https://datos.gob.es/es/catalogo/e05068001-precio-de-carburantes-en-las-gasolineras-espanolas) dos veces al día para asegurar que la base de datos esté actualizada.
 
 #### Documentación Scalar
 
-La documentación detallada de la API se proporciona a través de Scalar. Explora y prueba los endpoints disponibles a través de la documentación en /docs.
+La documentación detallada de la API se proporciona a través de [Scalar](https://docs.scalar.com). Explora y prueba los endpoints disponibles a través de la documentación en `/docs`.
 
 ### Visión General Rápida
 
@@ -95,6 +96,15 @@ La documentación detallada de la API se proporciona a través de Scalar. Explor
     curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lon=-3.70379&lat=40.41678&distance=10000"
     ```
 
+  - **GET** `/stations/:id` - Recupera los detalles de una estación de servicio por su ID.
+    - **Parámetros de Ruta**:
+      - `id` (requerido) - El UUID de la estación de servicio.
+
+    **Ejemplo de Solicitud**:
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/stations/f47ac10b-58cc-4372-a567-0e02b2c3d479"
+    ```
+
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](./LICENSE) para más detalles.
@@ -110,20 +120,21 @@ Para cualquier pregunta o sugerencia, por favor abre una issue o contacta a [ism
 
 ## English.
 
-FuelPriceSpainAPI is a Fastify-based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using Docker and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at `/docs`.
+FuelPriceSpainAPI is a [Fastify](https://fastify.dev) based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using [Docker](https://www.docker.com)  and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at `/docs`.
 
 ## Features
 
-- **Real-Time Data**: Automatically fetches the latest fuel prices from the official Spanish government website twice a day.
+- **Real-Time Data**: Automatically fetches the latest fuel prices from the  [official Spanish goverment website](https://datos.gob.es/es/catalogo/e05068001-precio-de-carburantes-en-las-gasolineras-espanolas) twice a day.
 - **Comprehensive Coverage**: Includes data from gas stations across all provinces in Spain.
-- **Containerized**: Fully containerized using Docker for easy deployment and scalability.
-- **Detailed Documentation**: API documentation is provided using Scalar, accessible at `/docs`.
+- **Containerized**: Fully containerized using [Docker](https://www.docker.com)  for easy deployment and scalability.
+- **Detailed Documentation**: API documentation is provided using [Scalar](https://docs.scalar.com), accessible at `/docs`.
 
 ## Prerequisites
 
-- Docker
-- Docker Compose
-- Make
+- [Docker](https://www.docker.com) 
+- [Docker compose](https://docs.docker.com/compose/)
+- [Make](https://www.gnu.org/software/make/manual/make.html)
+- [Node](https://nodejs.org/en)
 
 ## Getting Started
 
@@ -149,7 +160,7 @@ FuelPriceSpainAPI is a Fastify-based RESTful API that provides up-to-date inform
 
 #### Build and Start the Application
 
-To build and start the Docker containers, use the following commands:
+To build and start the [Docker](https://www.docker.com)  containers, use the following commands:
 
 Build the containers:
 
@@ -179,15 +190,15 @@ make clean
 
 #### Accessing the API
 
-API Documentation: Visit /docs to explore available endpoints and their usage.
+API Documentation: Visit `/docs` to explore available endpoints and their usage.
 
 #### Automatic Data Fetch
 
-The application automatically fetches the latest fuel prices from the official Spanish government website twice a day to ensure the database is up-to-date.
+The application automatically fetches the latest fuel prices from the official [official Spanish goverment website](https://datos.gob.es/es/catalogo/e05068001-precio-de-carburantes-en-las-gasolineras-espanolas) twice a day to ensure the database is up-to-date.
 
 #### Scalar Documentation
 
-Detailed API documentation is provided through Scalar. Explore and test the available endpoints via the documentation at /docs.
+Detailed API documentation is provided through [Scalar](https://docs.scalar.com). Explore and test the available endpoints via the documentation at `/docs`.
 
 ### Quick Overview
 
@@ -202,7 +213,16 @@ Detailed API documentation is provided through Scalar. Explore and test the avai
 
     **Example Request**:
     ```bash
-        curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lon=-3.70379&lat=40.41678&distance=10000"
+    curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lon=-3.70379&lat=40.41678&distance=10000"
+    ```
+
+  - **GET** `/stations/:id` - Retrieves the details of a gas station by its ID.
+    - **Path Parameters**:
+      - `id` (required) - The UUID of the gas station.
+
+    **Example Request**:
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/stations/f47ac10b-58cc-4372-a567-0e02b2c3d479"
     ```
 
 ## License
