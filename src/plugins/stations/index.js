@@ -46,5 +46,16 @@ module.exports = fp(async function (fastify, opts) {
     return rows;
   };
 
-  fastify.decorate("stations", {getNearestGasStations, getStationById, getStationsByLocation});
+  const getStationsByMunicipality = async (municipality) => {
+    const query = `
+      SELECT *
+      FROM stations
+      WHERE unaccent(lower(municipio)) = unaccent(lower($1));
+    `;
+
+    const {rows} = await fastify.pg.query(query, [municipality]);
+    return rows;
+  }
+
+  fastify.decorate("stations", {getNearestGasStations, getStationById, getStationsByLocation, getStationsByMunicipality});
 });
