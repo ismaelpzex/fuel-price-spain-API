@@ -1,13 +1,19 @@
 //Handlers
-const {getNearestGasStations, getGasStationById, getGasStationsByLocation} = require("./handlers");
-const getGasStationsByMunicipality = require("./handlers/get-gas-station-by-municipality");
+const {
+  getNearestGasStations,
+  getGasStationById,
+  getGasStationsByLocation,
+  getGasStationsByMunicipality,
+  getGasStationsByProvince
+} = require("./handlers");
 
 //Schemas
 const {
   getNearesGasStationsSchema,
   getGasStationByIdSchema,
   getGasStationsByLocationSchema,
-  getGasStationsByMunicipalitySchema
+  getGasStationsByMunicipalitySchema,
+  getGasStationsByProvinceSchema
 } = require("./schemas");
 
 module.exports = async function (fastify, opts) {
@@ -61,5 +67,18 @@ module.exports = async function (fastify, opts) {
       ...getGasStationsByMunicipalitySchema
     },
     handler: getGasStationsByMunicipality
+  });
+
+  fastify.route({
+    method: "GET",
+    url: "/province/:province",
+    schema: {
+      summary: "Get station by province",
+      description:
+        "This endpoint allows obtaining the details of a specific gas station by its province. The gas station is determined by the path parameter province. The location should be a valid string.",
+      tags: ["stations"],
+      ...getGasStationsByProvinceSchema
+    },
+    handler: getGasStationsByProvince
   });
 };
