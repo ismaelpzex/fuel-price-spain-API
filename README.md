@@ -1,7 +1,7 @@
 
 # FuelPriceSpainAPI
 <p align="center">
-  <img src="./assets/fuelPriceSpainApiLogo.png" alt="Logo" width="75%">
+  <img src="./assets/fuelPriceSpainApiLogo.png" alt="Logo" style="width:50%;">
 </p>
 
 ## Español.
