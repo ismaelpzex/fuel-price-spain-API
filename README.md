@@ -1,4 +1,6 @@
-<img src="./assets/fuelPriceSpainApiLogo.png" alt="Logo" width="50%" height="50%">
+<div style="text-align: center;">
+  <img src="./assets/fuelPriceSpainApiLogo.png" alt="Logo" width="75%" height="75%">
+</div>
 
 # FuelPriceSpainAPI
 
