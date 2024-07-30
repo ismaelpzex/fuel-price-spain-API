@@ -1,8 +1,8 @@
 //Handlers
-const { getNearestGasStations, getGasStationById } = require("./handlers");
+const { getNearestGasStations, getGasStationById, getGasStationsByLocation } = require("./handlers");
 
 //Schemas
-const { getNearesGasStationsSchema, getGasStationByIdSchema } = require("./schemas");
+const { getNearesGasStationsSchema, getGasStationByIdSchema, getGasStationsByLocationSchema } = require("./schemas");
 
 module.exports = async function (fastify, opts) {
   fastify.route({
@@ -29,4 +29,18 @@ module.exports = async function (fastify, opts) {
     },
     handler: getGasStationById
   })
+
+    fastify.route({
+      method: "GET",
+      url: "/location/:location",
+      schema: {
+      summary: "Get station by location",
+      description:
+        "This endpoint allows obtaining the details of a specific gas station by its location. The gas station is determined by the path parameter location. The location should be a valid string.",
+      tags: ["stations"],
+      ...getGasStationsByLocationSchema
+      },
+      handler: getGasStationsByLocation
+    });
+
 };
