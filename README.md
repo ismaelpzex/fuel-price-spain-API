@@ -1,8 +1,6 @@
+![Logo](./assets/fuelPriceSpainApiLogo.png){:height="50%" width="50%"}
+
 # FuelPriceSpainAPI
-
-
-![Logo](./assets/fuelPriceSpainApiLogo.png)
-
 
 ## Español.
 
