@@ -2,6 +2,8 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 CREATE EXTENSION IF NOT EXISTS "postgis";
 
+CREATE EXTENSION IF NOT EXISTS "unaccent";
+
 CREATE TABLE stations (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     cp VARCHAR(10),
