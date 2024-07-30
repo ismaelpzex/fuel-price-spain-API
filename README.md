@@ -1,13 +1,13 @@
 # FuelPriceSpainAPI
 
-FuelPriceSpainAPI is a Fastify-based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using Docker and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at [http://localhost:4000/docs](http://localhost:4000/docs).
+FuelPriceSpainAPI is a Fastify-based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using Docker and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at `/docs`.
 
 ## Features
 
-- **Real-Time Data**: Automatically fetches the latest fuel prices from the official government website twice a day.
+- **Real-Time Data**: Automatically fetches the latest fuel prices from the official Spanish government website twice a day.
 - **Comprehensive Coverage**: Includes data from gas stations across all provinces in Spain.
 - **Containerized**: Fully containerized using Docker for easy deployment and scalability.
-- **Detailed Documentation**: API documentation is provided using Scalar, accessible at [http://localhost:4000/docs](http://localhost:4000/docs).
+- **Detailed Documentation**: API documentation is provided using Scalar, accessible at `/docs`.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ FuelPriceSpainAPI is a Fastify-based RESTful API that provides up-to-date inform
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/fuel-price-spain-api.git
+    git clone https://github.com/ismaelpzex/fuel-price-spain-api.git
     cd fuel-price-spain-api
     ```
 
@@ -69,23 +69,15 @@ make clean
 
 #### Accessing the API
 
-API Documentation: Visit [http://localhost:4000/docs](http://localhost:4000/docs) to explore available endpoints and their usage.
+API Documentation: Visit /docs to explore available endpoints and their usage.
 
 #### Automatic Data Fetch
 
-The application automatically fetches the latest fuel prices from the official government website twice a day to ensure the database is up-to-date.
+The application automatically fetches the latest fuel prices from the official Spanish government website twice a day to ensure the database is up-to-date.
 
 #### Scalar Documentation
 
-Detailed API documentation is provided through Scalar. Explore and test the available endpoints via the documentation at [http://localhost:4000/docs](http://localhost:4000/docs).
-
-#### Example Endpoint
-
-To retrieve all stations, send a GET request to `/stations`:
-
-```http
-GET /stations
-```
+Detailed API documentation is provided through Scalar. Explore and test the available endpoints via the documentation at /docs.
 
 ## License
 
