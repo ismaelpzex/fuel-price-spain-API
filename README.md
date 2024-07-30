@@ -75,7 +75,23 @@ La aplicación recupera automáticamente los últimos precios de combustible del
 
 La documentación detallada de la API se proporciona a través de Scalar. Explora y prueba los endpoints disponibles a través de la documentación en /docs.
 
-## License
+### Visión General Rápida
+
+- **URL Base**: `/api/v1`
+
+- **Endpoints**:
+  - **GET** `/nearest-gas-stations` - Recupera las estaciones de servicio más cercanas en función de las coordenadas proporcionadas.
+    - **Parámetros de Consulta**:
+      - `lon` (requerido) - Longitud de la ubicación.
+      - `lat` (requerido) - Latitud de la ubicación.
+      - `distance` (opcional) - Distancia máxima desde la ubicación en metros. Por defecto es 5000 metros si no se proporciona.
+
+    **Ejemplo de Solicitud**:
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lon=-3.70379&lat=40.41678&distance=10000"
+    ```
+
+## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](./LICENSE) para más detalles.
 
@@ -168,6 +184,22 @@ The application automatically fetches the latest fuel prices from the official S
 #### Scalar Documentation
 
 Detailed API documentation is provided through Scalar. Explore and test the available endpoints via the documentation at /docs.
+
+### Quick Overview
+
+- **Base URL**: `/api/v1`
+
+- **Endpoints**:
+  - **GET** `/nearest-gas-stations` - Retrieves the nearest gas stations based on provided coordinates.
+    - **Query Parameters**:
+      - `lon` (required) - Longitude of the location.
+      - `lat` (required) - Latitude of the location.
+      - `distance` (optional) - Maximum distance from the location in meters. Defaults to 5000 meters if not provided.
+
+    **Example Request**:
+    ```bash
+        curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lon=-3.70379&lat=40.41678&distance=10000"
+    ```
 
 ## License
 
