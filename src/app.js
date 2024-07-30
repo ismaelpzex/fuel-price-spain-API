@@ -2,7 +2,7 @@
 
 const path = require('node:path')
 const AutoLoad = require('@fastify/autoload')
-
+const fastifyStatic = require("@fastify/static");
 // Pass --options via CLI arguments in command to enable these options.
 const options = {}
 
@@ -20,6 +20,11 @@ module.exports = async function (fastify, opts) {
     dir: path.join(__dirname, "routes"),
     options: Object.assign({prefix: "/api/v1"}, opts)
   });
+
+fastify.register(fastifyStatic, {
+  root: path.join(__dirname, "../assets"),
+  prefix: "/assets/" // Esto debe coincidir con la ruta en tu configuración de Swagger
+});
 
   // This loads all plugins defined in routes
   // define your routes in one of these

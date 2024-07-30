@@ -13,5 +13,16 @@ module.exports = {
           "This section of the API documentation is dedicated to station-related operations, providing a robust interface for managing gas stations within the application. It encompasses a comprehensive suite of endpoints that facilitate the interaction with station profiles. Each endpoint is meticulously designed to ensure secure and efficient management of station data, supporting functionalities such as station registration, location management, fuel price updates, and other essential operations. Through these endpoints, developers can seamlessly integrate station-centric features into their applications, enhancing the overall user experience by leveraging detailed station information and real-time fuel pricing. This section ensures that all interactions related to gas station management are handled efficiently, providing a reliable foundation for applications that require accurate and up-to-date information on fuel stations across Spain."
       }
     ]
+  },
+  swaggerOptions: {
+    docExpansion: "list", // Opciones: none, list, full
+    operationsSorter: "alpha",
+    displayRequestDuration: true,
+    showExtensions: true,
+    showCommonExtensions: true,
+    logo: {
+      url: "/assets/fuelPriceSpainApiLogo.png",
+      altText: "Fuel Price Spain API"
+    }
   }
 };
