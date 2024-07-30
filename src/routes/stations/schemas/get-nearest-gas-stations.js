@@ -20,5 +20,7 @@ module.exports = {
             }
         },
         400: {$ref: "bad-request"},
+        404: {$ref: "not-found"},
+        500: {$ref: "server-error"}
     }
 };
