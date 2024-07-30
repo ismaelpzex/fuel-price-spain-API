@@ -81,15 +81,15 @@ Detailed API documentation is provided through Scalar. Explore and test the avai
 
 ## License
 
-This project is licensed under the ISC License. See the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure that your code adheres to the existing code style and includes appropriate tests.
+Contributions are welcome! Please refer to our [CONTRIBUTING.md](./CONTRIBUTING.md) file for detailed instructions on how to fork the repository, create a pull request, and ensure your code adheres to the existing style and includes appropriate tests.
 
 ## Contact
 
-For any questions or suggestions, please open an issue or contact ismaelpzex@gmail.com
+For any questions or suggestions, please open an issue or contact [ismaelpzex@gmail.com](mailto:ismaelpzex@gmail.com).
 
 ## Topics
 
