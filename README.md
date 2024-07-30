@@ -1,4 +1,4 @@
-![Logo](./assets/fuelPriceSpainApiLogo.png){:height="50%" width="50%"}
+<img src="./assets/fuelPriceSpainApiLogo.png" alt="Logo" width="50%" height="50%">
 
 # FuelPriceSpainAPI
 
