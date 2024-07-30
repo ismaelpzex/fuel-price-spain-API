@@ -105,6 +105,15 @@ La documentación detallada de la API se proporciona a través de [Scalar](https
     curl -X GET "http://api.example.com/api/v1/stations/f47ac10b-58cc-4372-a567-0e02b2c3d479"
     ```
 
+      - **GET** `/stations/location/:location` - Recupera las estaciones de servicio por localidad.
+    - **Parámetros de Ruta**:
+      - `location` (requerido) - La ubicación de la estación de servicio.
+
+    **Ejemplo de Solicitud**:
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/stations/location/Madrid"
+    ```
+
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](./LICENSE) para más detalles.
@@ -223,6 +232,15 @@ Detailed API documentation is provided through [Scalar](https://docs.scalar.com)
     **Example Request**:
     ```bash
     curl -X GET "http://api.example.com/api/v1/stations/f47ac10b-58cc-4372-a567-0e02b2c3d479"
+    ```
+
+  - **GET** `/stations/location/:location` - Retrieves gas stations by location.
+    - **Path Parameters**:
+      - `location` (required) - The location of the gas station.
+
+    **Example Request**:
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/stations/location/Madrid"
     ```
 
 ## License
