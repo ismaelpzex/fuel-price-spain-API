@@ -1,8 +1,14 @@
 //Handlers
-const { getNearestGasStations, getGasStationById, getGasStationsByLocation } = require("./handlers");
+const {getNearestGasStations, getGasStationById, getGasStationsByLocation} = require("./handlers");
+const getGasStationsByMunicipality = require("./handlers/get-gas-station-by-municipality");
 
 //Schemas
-const { getNearesGasStationsSchema, getGasStationByIdSchema, getGasStationsByLocationSchema } = require("./schemas");
+const {
+  getNearesGasStationsSchema,
+  getGasStationByIdSchema,
+  getGasStationsByLocationSchema,
+  getGasStationsByMunicipalitySchema
+} = require("./schemas");
 
 module.exports = async function (fastify, opts) {
   fastify.route({
@@ -23,24 +29,37 @@ module.exports = async function (fastify, opts) {
     url: "/:id",
     schema: {
       summary: "Get station by ID",
-      description: "This endpoint allows obtaining the details of a specific gas station by its unique identifier. The gas station is determined by the path parameter id. The id should be a valid UUID.",
+      description:
+        "This endpoint allows obtaining the details of a specific gas station by its unique identifier. The gas station is determined by the path parameter id. The id should be a valid UUID.",
       tags: ["stations"],
       ...getGasStationByIdSchema
     },
     handler: getGasStationById
-  })
+  });
 
-    fastify.route({
-      method: "GET",
-      url: "/location/:location",
-      schema: {
+  fastify.route({
+    method: "GET",
+    url: "/location/:location",
+    schema: {
       summary: "Get station by location",
       description:
         "This endpoint allows obtaining the details of a specific gas station by its location. The gas station is determined by the path parameter location. The location should be a valid string.",
       tags: ["stations"],
       ...getGasStationsByLocationSchema
-      },
-      handler: getGasStationsByLocation
-    });
+    },
+    handler: getGasStationsByLocation
+  });
 
+  fastify.route({
+    method: "GET",
+    url: "/municipality/:municipality",
+    schema: {
+      summary: "Get station by municipality",
+      description:
+        "This endpoint allows obtaining the details of a specific gas station by its municipality. The gas station is determined by the path parameter municipality. The location should be a valid string.",
+      tags: ["stations"],
+      ...getGasStationsByMunicipalitySchema
+    },
+    handler: getGasStationsByMunicipality
+  });
 };
