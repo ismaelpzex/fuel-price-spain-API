@@ -1,5 +1,97 @@
 # FuelPriceSpainAPI
 
+##Español.
+
+FuelPriceSpainAPI es una API RESTful basada en Fastify que proporciona información actualizada sobre los precios de combustible en estaciones de servicio en toda España. Esta API está containerizada utilizando Docker y utiliza PostgreSQL como su base de datos. La aplicación incluye varios endpoints para acceder a los datos de precios de combustible, los cuales se pueden explorar a través de la documentación disponible en `/docs`.
+
+## Características
+
+- **Datos en Tiempo Real**: Recupera automáticamente los últimos precios de combustible del sitio web oficial del gobierno español dos veces al día.
+- **Cobertura Integral**: Incluye datos de estaciones de servicio en todas las provincias de España.
+- **Containerizado**: Totalmente containerizado utilizando Docker para una fácil implementación y escalabilidad.
+- **Documentación Detallada**: La documentación de la API se proporciona mediante Scalar, accesible en `/docs`.
+
+## Prerrequisitos
+
+- Docker
+- Docker Compose
+- Make
+
+## Comenzando
+
+### Instalación
+
+1. **Clona el repositorio**:
+
+    ```bash
+    git clone https://github.com/ismaelpzex/fuel-price-spain-api.git
+    cd fuel-price-spain-api
+    ```
+
+2. Crea un archivo `.env` en el directorio raíz con el siguiente contenido:
+
+    ```bash
+    POSTGRES_USER=example
+    POSTGRES_PASSWORD=example
+    POSTGRES_DB=db
+    POSTGRES_HOST=database
+    ```
+
+### Uso
+
+#### Construir y Arrancar la Aplicación
+
+Para construir y arrancar los contenedores Docker, usa los siguientes comandos:
+
+Construir los contenedores:
+
+```bash
+make build
+```
+
+#### Administrar la Aplicación
+
+Detener los contenedores:
+
+```bash
+make stop
+```
+
+Detener y limpiar (incluyendo el contenido de la base de datos):
+
+```bash
+make clean
+```
+
+#### Acceso a la API
+
+Documentación de la API: Visita /docs para explorar los endpoints disponibles y su uso.
+
+#### Obtención Automática de Datos
+
+La aplicación recupera automáticamente los últimos precios de combustible del sitio web oficial del gobierno español dos veces al día para asegurar que la base de datos esté actualizada.
+
+#### Documentación Scalar
+
+La documentación detallada de la API se proporciona a través de Scalar. Explora y prueba los endpoints disponibles a través de la documentación en /docs.
+
+## License
+
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](./LICENSE) para más detalles.
+
+## Contributing
+
+Contributions are welcome! Please refer to our [CONTRIBUTING.md](./CONTRIBUTING.md) file for detailed instructions on how to fork the repository, create a pull request, and ensure your code adheres to the existing style and includes appropriate tests.
+
+¡Las contribuciones son bienvenidas! Por favor, consulta nuestro archivo [CONTRIBUTING.md](./CONTRIBUTING.md) para instrucciones detalladas sobre cómo hacer fork el repositorio, crear una PR y asegurarte de que tu código se ajuste al estilo existente e incluya tests aadecuados.
+
+## Contact
+
+Para cualquier pregunta o sugerencia, por favor abre una issue o contacta a [ismaelpzex@gmail.com](mailto:ismaelpzex@gmail.com).
+
+
+##English.
+
 FuelPriceSpainAPI is a Fastify-based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using Docker and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at `/docs`.
 
 ## Features
@@ -262,4 +354,5 @@ For any questions or suggestions, please open an issue or contact [ismaelpzex@gm
 - Información Precisa sobre Precios de Gas
 - Cobertura Nacional de Precios de Combustible
 - API Avanzada de Precios de Combustible
+
 
