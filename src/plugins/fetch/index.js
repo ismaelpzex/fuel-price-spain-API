@@ -1,7 +1,6 @@
 const getDataFromSot = require("./get-data-from-sot");
 const transformKeys = require("./transform-keys");
-const generateInserts = require("./generate-inserts");
-const generateUpdates = require("./generate-updates");
+const generateUpsert = require("./generate-upsert");
 const fp = require("fastify-plugin");
 const cron = require("node-cron");
 
@@ -13,20 +12,20 @@ const TIMEZONE = "Europe/Madrid";
 module.exports = fp(async (fastify, opts) => {
   const refresh = async () => {
     fastify.log.info("Fetching data...");
-    const response = await fastify.pg.query("SELECT * FROM stations");
     const dataFromSot = await getDataFromSot(DATA_URL);
     const transformedData = transformKeys(dataFromSot.ListaEESSPrecio);
-    const query =
-      response.rows.length > 0 ? await generateUpdates(transformedData) : await generateInserts(transformedData);
+    const query =await generateUpsert(transformedData)
     try {
-      await fastify.pg.query(query);
+        await fastify.pg.query(query);
       fastify.log.info("Data fetched successfully");
     } catch (error) {
+        console.log(error)
       fastify.log.error(`Error fetching data: ${error.message}`);
     }
   };
 
   await refresh();
+  fastify.log.info("Data will be updated every 12 hours");
   cron.schedule(
     CRON_SCHEDULE,
     async () => {

@@ -18,13 +18,16 @@
     "fastify": "^4.26.1",
     "fastify-cli": "^6.2.1",
     "fastify-plugin": "^4.0.0",
+    "jest": "^29.7.0",
     "node-cron": "^3.0.3",
     "pg": "^8.12.0"
   },
   "scripts": {
     "test": "node --test test/**/*.test.js",
     "start": "fastify start -l info --options src/app.js",
-    "dev": "fastify start -w -l info -P --options src/app.js"
+    "dev": "fastify start -w -l info -P --options src/app.js",
+    "tdd:e2e": "jest --projects test/templates/e2e --runInBand --watchAll --testTimeout=10000 --detectOpenHandles",
+    "tdd:unit": "jest --projects test/templates/unit --watchAll"
   },
   "keywords": [
     "fuel price API",

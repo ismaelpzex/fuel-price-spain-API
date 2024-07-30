@@ -22,3 +22,11 @@ clean:
 		y|Y ) ${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml down; rm -rf ./docker-data/db-data/*; echo "All cleaned, happy code" ;; \
 		* ) echo "Aborted" ;; \
 	esac
+
+tdd-e2e-fuel-price:
+	@echo "Running tdd for fuel-price"
+	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml -f docker-compose.e2e.yml up fuel-price
+
+tdd-unit-fuel-price:
+	@echo "Running unit tests for fuel-price"
+	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml -f docker-compose.unit.yml up fuel-price

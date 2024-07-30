@@ -1,4 +1,5 @@
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
 CREATE EXTENSION IF NOT EXISTS "postgis";
 
 CREATE TABLE stations (
@@ -31,10 +32,13 @@ CREATE TABLE stations (
     tipo_venta VARCHAR(1),
     porcentaje_bioetanol VARCHAR(5),
     porcentaje_ester_metilico VARCHAR(5),
-    ideess VARCHAR(10),
+    ideess VARCHAR(10) UNIQUE NOT NULL,
     idmunicipio VARCHAR(10),
     idprovincia VARCHAR(10),
-    idccaa VARCHAR(10)
+    idccaa VARCHAR(10),
+    last_update TIMESTAMP DEFAULT NULL
 );
 
 CREATE INDEX idx_locations_geom ON stations USING GIST (ST_MakePoint(longitud, latitud));
+
+ALTER TABLE stations ADD CONSTRAINT unique_ideess UNIQUE (ideess);
