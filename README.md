@@ -1,5 +1,5 @@
-
 # FuelPriceSpainAPI
+
 <p align="center">
   <img src="./assets/fuelPriceSpainApiLogo.png" alt="Logo" style="width:65%;">
 </p>
@@ -12,12 +12,12 @@ FuelPriceSpainAPI es una API RESTful basada en [Fastify](https://fastify.dev) qu
 
 - **Datos en Tiempo Real**: Recupera automáticamente los últimos precios de combustible del [sitio web oficial del gobierno de españa](https://datos.gob.es/es/catalogo/e05068001-precio-de-carburantes-en-las-gasolineras-espanolas) dos veces al día.
 - **Cobertura Integral**: Incluye datos de estaciones de servicio en todas las provincias de España.
-- **Containerizado**: Totalmente containerizado utilizando [Docker](https://www.docker.com)  para una fácil implementación y escalabilidad.
+- **Containerizado**: Totalmente containerizado utilizando [Docker](https://www.docker.com) para una fácil implementación y escalabilidad.
 - **Documentación Detallada**: La documentación de la API se proporciona mediante [Scalar](https://docs.scalar.com), accesible en `/docs`.
 
 ## Prerrequisitos
 
-- [Docker](https://www.docker.com) 
+- [Docker](https://www.docker.com)
 - [Docker compose](https://docs.docker.com/compose/)
 - [Make](https://www.gnu.org/software/make/manual/make.html)
 - [Node](https://nodejs.org/en)
@@ -28,19 +28,19 @@ FuelPriceSpainAPI es una API RESTful basada en [Fastify](https://fastify.dev) qu
 
 1. **Clona el repositorio**:
 
-    ```bash
-    git clone https://github.com/ismaelpzex/fuel-price-spain-api.git
-    cd fuel-price-spain-api
-    ```
+   ```bash
+   git clone https://github.com/ismaelpzex/fuel-price-spain-api.git
+   cd fuel-price-spain-api
+   ```
 
 2. Crea un archivo `.env` en el directorio raíz con el siguiente contenido:
 
-    ```bash
-    POSTGRES_USER=example
-    POSTGRES_PASSWORD=example
-    POSTGRES_DB=db
-    POSTGRES_HOST=database
-    ```
+   ```bash
+   POSTGRES_USER=example
+   POSTGRES_PASSWORD=example
+   POSTGRES_DB=db
+   POSTGRES_HOST=database
+   ```
 
 ### Uso
 
@@ -85,33 +85,50 @@ La documentación detallada de la API se proporciona a través de [Scalar](https
 - **URL Base**: `/api/v1`
 
 - **Endpoints**:
+
   - **GET** `/nearest-gas-stations` - Recupera las estaciones de servicio más cercanas en función de las coordenadas proporcionadas.
+
     - **Parámetros de Consulta**:
       - `lon` (requerido) - Longitud de la ubicación.
       - `lat` (requerido) - Latitud de la ubicación.
       - `distance` (opcional) - Distancia máxima desde la ubicación en metros. Por defecto es 5000 metros si no se proporciona.
 
     **Ejemplo de Solicitud**:
+
     ```bash
     curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lon=-3.70379&lat=40.41678&distance=10000"
     ```
 
   - **GET** `/stations/:id` - Recupera los detalles de una estación de servicio por su ID.
+
     - **Parámetros de Ruta**:
       - `id` (requerido) - El UUID de la estación de servicio.
 
     **Ejemplo de Solicitud**:
+
     ```bash
     curl -X GET "http://api.example.com/api/v1/stations/f47ac10b-58cc-4372-a567-0e02b2c3d479"
     ```
 
-      - **GET** `/stations/location/:location` - Recupera las estaciones de servicio por localidad.
+    - **GET** `/stations/location/:location` - Recupera las estaciones de servicio por localidad.
     - **Parámetros de Ruta**:
       - `location` (requerido) - La ubicación de la estación de servicio.
 
     **Ejemplo de Solicitud**:
+
     ```bash
     curl -X GET "http://api.example.com/api/v1/stations/location/Madrid"
+    ```
+
+    - **GET** `/stations/municipality/:municipality` - Recupera las estaciones de servicio por municipio.
+
+    - **Parámetros de Ruta**:
+      - `municipality` (requerido) - La ubicación de la estación de servicio.
+
+    **Ejemplo de Solicitud**:
+
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/stations/municipality/Madrid"
     ```
 
 ## Licencia
@@ -126,21 +143,20 @@ Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICEN
 
 Para cualquier pregunta o sugerencia, por favor abre una issue o contacta a [ismaelpzex@gmail.com](mailto:ismaelpzex@gmail.com).
 
-
 ## English.
 
-FuelPriceSpainAPI is a [Fastify](https://fastify.dev) based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using [Docker](https://www.docker.com)  and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at `/docs`.
+FuelPriceSpainAPI is a [Fastify](https://fastify.dev) based RESTful API that provides up-to-date information on fuel prices at gas stations across Spain. This API is containerized using [Docker](https://www.docker.com) and leverages PostgreSQL as its database. The application includes several endpoints for accessing fuel price data, which can be explored via the documentation available at `/docs`.
 
 ## Features
 
-- **Real-Time Data**: Automatically fetches the latest fuel prices from the  [official Spanish goverment website](https://datos.gob.es/es/catalogo/e05068001-precio-de-carburantes-en-las-gasolineras-espanolas) twice a day.
+- **Real-Time Data**: Automatically fetches the latest fuel prices from the [official Spanish goverment website](https://datos.gob.es/es/catalogo/e05068001-precio-de-carburantes-en-las-gasolineras-espanolas) twice a day.
 - **Comprehensive Coverage**: Includes data from gas stations across all provinces in Spain.
-- **Containerized**: Fully containerized using [Docker](https://www.docker.com)  for easy deployment and scalability.
+- **Containerized**: Fully containerized using [Docker](https://www.docker.com) for easy deployment and scalability.
 - **Detailed Documentation**: API documentation is provided using [Scalar](https://docs.scalar.com), accessible at `/docs`.
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com) 
+- [Docker](https://www.docker.com)
 - [Docker compose](https://docs.docker.com/compose/)
 - [Make](https://www.gnu.org/software/make/manual/make.html)
 - [Node](https://nodejs.org/en)
@@ -151,25 +167,25 @@ FuelPriceSpainAPI is a [Fastify](https://fastify.dev) based RESTful API that pro
 
 1. **Clone the repository**:
 
-    ```bash
-    git clone https://github.com/ismaelpzex/fuel-price-spain-api.git
-    cd fuel-price-spain-api
-    ```
+   ```bash
+   git clone https://github.com/ismaelpzex/fuel-price-spain-api.git
+   cd fuel-price-spain-api
+   ```
 
 2. Create a `.env` file in the root directory with the following content:
 
-    ```bash
-    POSTGRES_USER=example
-    POSTGRES_PASSWORD=example
-    POSTGRES_DB=db
-    POSTGRES_HOST=database
-    ```
+   ```bash
+   POSTGRES_USER=example
+   POSTGRES_PASSWORD=example
+   POSTGRES_DB=db
+   POSTGRES_HOST=database
+   ```
 
 ### Usage
 
 #### Build and Start the Application
 
-To build and start the [Docker](https://www.docker.com)  containers, use the following commands:
+To build and start the [Docker](https://www.docker.com) containers, use the following commands:
 
 Build the containers:
 
@@ -214,31 +230,49 @@ Detailed API documentation is provided through [Scalar](https://docs.scalar.com)
 - **Base URL**: `/api/v1`
 
 - **Endpoints**:
+
   - **GET** `/nearest-gas-stations` - Retrieves the nearest gas stations based on provided coordinates.
+
     - **Query Parameters**:
       - `lon` (required) - Longitude of the location.
       - `lat` (required) - Latitude of the location.
       - `distance` (optional) - Maximum distance from the location in meters. Defaults to 5000 meters if not provided.
 
     **Example Request**:
+
     ```bash
     curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lon=-3.70379&lat=40.41678&distance=10000"
     ```
 
   - **GET** `/stations/:id` - Retrieves the details of a gas station by its ID.
+
     - **Path Parameters**:
       - `id` (required) - The UUID of the gas station.
 
     **Example Request**:
+
     ```bash
     curl -X GET "http://api.example.com/api/v1/stations/f47ac10b-58cc-4372-a567-0e02b2c3d479"
     ```
 
   - **GET** `/stations/location/:location` - Retrieves gas stations by location.
+
     - **Path Parameters**:
       - `location` (required) - The location of the gas station.
 
     **Example Request**:
+
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/stations/location/Madrid"
+    ```
+
+    - **GET** `/stations/municipality/:municipality` - Retrieves gas stations by municipality.
+
+    - **Path Parameters**:
+      - `municipality` (required) - The municipality of the gas station.
+
+    **Example Request**:
+
     ```bash
     curl -X GET "http://api.example.com/api/v1/stations/location/Madrid"
     ```
@@ -426,5 +460,3 @@ For any questions or suggestions, please open an issue or contact [ismaelpzex@gm
 - Información Precisa sobre Precios de Gas
 - Cobertura Nacional de Precios de Combustible
 - API Avanzada de Precios de Combustible
-
-
