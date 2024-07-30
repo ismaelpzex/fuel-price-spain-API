@@ -13,6 +13,14 @@ module.exports = {
         required: ["lat", "lon"]
     },
     response: {
-        400: {$ref: "bad-request"}
+        200: {
+            type: "array",
+            items: {
+                $ref: "station-response-dto"
+            }
+        },
+        400: {$ref: "bad-request"},
+        404: {$ref: "not-found"},
+        500: {$ref: "server-error"}
     }
 };

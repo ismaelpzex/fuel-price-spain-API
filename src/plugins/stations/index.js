@@ -24,5 +24,16 @@ module.exports = fp(async function (fastify, opts) {
     return rows;
   };
 
-  fastify.decorate("stations", {getNearestGasStations});
+  const getStationById = async (id) => {
+    const query = `
+        SELECT *
+        FROM stations
+        WHERE id = $1;
+    `;
+
+    const {rows} = await fastify.pg.query(query, [id]);
+    return rows[0];
+  };
+
+  fastify.decorate("stations", {getNearestGasStations, getStationById});
 });

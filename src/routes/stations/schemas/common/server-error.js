@@ -6,12 +6,9 @@ module.exports = {
         type: "string",
         description: "the error message"
       },
-      extensions: {
-        type: "array",
-        items: {
-          type: "object"
-        },
-        description: "additional information about the error"
+      error: {
+        type: "string",
+        description: "the error type"
       }
     },
     required: ["message"]

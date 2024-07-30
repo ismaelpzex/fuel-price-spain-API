@@ -1,8 +1,8 @@
 //Handlers
-const { getNearestGasStations } = require("./handlers");
+const { getNearestGasStations, getGasStationById } = require("./handlers");
 
 //Schemas
-const { getNearesGasStationsSchema } = require("./schemas");
+const { getNearesGasStationsSchema, getGasStationByIdSchema } = require("./schemas");
 
 module.exports = async function (fastify, opts) {
   fastify.route({
@@ -16,6 +16,17 @@ module.exports = async function (fastify, opts) {
       ...getNearesGasStationsSchema
     },
     handler: getNearestGasStations
-    
   });
+
+  fastify.route({
+    method: "GET",
+    url: "/:id",
+    schema: {
+      summary: "Get station by ID",
+      description: "This endpoint allows obtaining the details of a specific gas station by its unique identifier. The gas station is determined by the path parameter id. The id should be a valid UUID.",
+      tags: ["stations"],
+      ...getGasStationByIdSchema
+    },
+    handler: getGasStationById
+  })
 };
