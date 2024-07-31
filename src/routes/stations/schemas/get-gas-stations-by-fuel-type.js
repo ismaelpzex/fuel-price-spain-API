@@ -15,7 +15,6 @@ const allowedFuelTypes = [
   "hidrogeno"
 ];
 
-// Definir el patrón de expresión regular para validar los tipos de combustible
 const fuelTypePattern = allowedFuelTypes.join("|");
 
 module.exports = {
