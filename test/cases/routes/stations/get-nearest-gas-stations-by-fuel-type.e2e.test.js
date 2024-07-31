@@ -3,7 +3,7 @@ const insertGasStations = require("./helpers/insert-gas-stations");
 
 describe("GET /stations/nearest-gas-stations", () => {
   let app;
-  const baseUrl = "api/v1/stations/get-nearly-gas-stations-by-location";
+  const baseUrl = "api/v1/stations/get-nearly-gas-stations-by-fuel-type";
 
   beforeAll(async () => {
     app = await build();
