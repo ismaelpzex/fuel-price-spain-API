@@ -164,7 +164,7 @@ La documentación detallada de la API se proporciona a través de [Scalar](https
     **Ejemplo de Solicitud**:
 
     ```bash
-    curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lat=40.4165&lon=-3.70256&distance=10&fuelType=gasolina-95-e5,gasoleo-a"
+    curl -X GET "http://api.example.com/api/v1/get-nearly-gas-stations-by-fuel-type?lat=40.4165&lon=-3.70256&distance=10&fuelType=gasolina-95-e5,gasoleo-a"
     ```
 
 ## Licencia
@@ -346,7 +346,7 @@ Detailed API documentation is provided through [Scalar](https://docs.scalar.com)
     **Request Example**:
 
     ```bash
-    curl -X GET "http://api.example.com/api/v1/nearest-gas-stations?lat=40.4165&lon=-3.70256&distance=10&fuelType=gasoline-95-e5,diesel-a"
+    curl -X GET "http://api.example.com/api/v1/get-nearly-gas-stations-by-fuel-type?lat=40.4165&lon=-3.70256&distance=10&fuelType=gasoline-95-e5,diesel-a"
     ```
 
 ## License
