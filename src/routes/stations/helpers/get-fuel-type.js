@@ -34,13 +34,14 @@ module.exports = (fuelTypes) => {
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
 
-  const filteredFuelTypes = [
-    ...new Set(
-      fuelTypes
-        .map(normalizeFuelType)
-        .filter((fuelType) => Object.keys(fuelTypeStrategies).includes(fuelType))
-    )
-  ];
+const filteredFuelTypes = [
+  ...new Set(
+    fuelTypes
+      .map(normalizeFuelType)
+      .filter((fuelType) => Object.keys(fuelTypeStrategies).includes(fuelType))
+      .map((fuelType) => fuelTypeStrategies[fuelType])
+  )
+];
 
   if (filteredFuelTypes.length === 0) throw new Error("The type of fuel is not covered");
 
