@@ -142,6 +142,17 @@ La documentación detallada de la API se proporciona a través de [Scalar](https
     curl -X GET "http://api.example.com/api/v1/stations/province/Madrid"
     ```
 
+    - **GET** `/fuel-type/:fuelType` - Recupera las estaciones de servicio por tipo de combustible.
+
+    - **Parámetros de Ruta**:
+      - `fuelType` (requerido) - El tipo de combustible de la estación de servicio. Los valores permitidos son: "biodiesel", "bioetanol", "gas-natural-comprimido", "gas-natural-licuado", "gases-licuados-del-petroleo", "gasoleo-a", "gasoleo-b", "gasoleo-premium", "gasolina-95-e10", "gasolina-95-e5", "gasolina-95-e5-premium", "gasolina-98-e10", "gasolina-98-e5", "hidrogeno". Se pueden enviar múltiples valores separados por comas.
+
+    **Ejemplo de Solicitud**:
+
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/fuel-type/gasolina-95-e5,gasoleo-a"
+    ```
+
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](./LICENSE) para más detalles.
@@ -297,6 +308,17 @@ Detailed API documentation is provided through [Scalar](https://docs.scalar.com)
 
     ```bash
     curl -X GET "http://api.example.com/api/v1/stations/province/Madrid"
+    ```
+
+    - **GET** `/fuel-type/:fuelType` - Retrieves gas stations by fuel type.
+
+    - **Path Parameters**:
+      - `fuelType` (required) - The fuel type of the gas station. Allowed values are: "biodiesel", "bioetanol", "gas-natural-comprimido", "gas-natural-licuado", "gases-licuados-del-petroleo", "gasoleo-a", "gasoleo-b", "gasoleo-premium", "gasolina-95-e10", "gasolina-95-e5", "gasolina-95-e5-premium", "gasolina-98-e10", "gasolina-98-e5", "hidrogeno". Multiple values can be sent separated by commas.
+
+    **Example Request**:
+
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/fuel-type/gasolina-95-e5,gasoleo-a"
     ```
 
 ## License
