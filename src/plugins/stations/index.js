@@ -55,7 +55,7 @@ module.exports = fp(async function (fastify, opts) {
 
     const {rows} = await fastify.pg.query(query, [municipality]);
     return rows;
-  }
+  };
 
   const getStationsByProvince = async (province) => {
     const query = `
@@ -66,7 +66,31 @@ module.exports = fp(async function (fastify, opts) {
 
     const {rows} = await fastify.pg.query(query, [province]);
     return rows;
-  }
+  };
 
-  fastify.decorate("stations", {getNearestGasStations, getStationById, getStationsByLocation, getStationsByMunicipality, getStationsByProvince});
+  const getStationsByFuelType = async (fuelTypes) => {
+
+    const conditionals = fuelTypes.reduce((acc, curr, index) => {
+      const condition = `${curr} != ''`;
+      return index === 0 ? `WHERE ${condition}` : `${acc} AND ${condition}`;
+    }, "");
+
+    const query = `
+    SELECT *
+    FROM stations
+    ${conditionals};
+  `;
+
+    const {rows} = await fastify.pg.query(query);
+    return rows;
+  };
+
+  fastify.decorate("stations", {
+    getNearestGasStations,
+    getStationById,
+    getStationsByLocation,
+    getStationsByMunicipality,
+    getStationsByProvince,
+    getStationsByFuelType
+  });
 });
