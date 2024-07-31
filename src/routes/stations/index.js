@@ -4,7 +4,8 @@ const {
   getGasStationById,
   getGasStationsByLocation,
   getGasStationsByMunicipality,
-  getGasStationsByProvince
+  getGasStationsByProvince,
+  getGasStationsByFuelType
 } = require("./handlers");
 
 //Schemas
@@ -13,7 +14,8 @@ const {
   getGasStationByIdSchema,
   getGasStationsByLocationSchema,
   getGasStationsByMunicipalitySchema,
-  getGasStationsByProvinceSchema
+  getGasStationsByProvinceSchema,
+  getGasStationsByFuelTypeSchema
 } = require("./schemas");
 
 module.exports = async function (fastify, opts) {
@@ -80,5 +82,18 @@ module.exports = async function (fastify, opts) {
       ...getGasStationsByProvinceSchema
     },
     handler: getGasStationsByProvince
+  });
+
+  fastify.route({
+    method: "GET",
+    url: "/fuel-type/:fuelType",
+    schema: {
+      summary: "Get gas stations by fuel type",
+      description:
+        "This endpoint allows obtaining all the gas stations with a specific fuel type.",
+      tags: ["stations"],
+      ...getGasStationsByFuelTypeSchema
+    },
+    handler: getGasStationsByFuelType
   });
 };
