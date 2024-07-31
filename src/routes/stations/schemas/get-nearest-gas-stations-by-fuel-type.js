@@ -18,9 +18,16 @@ const allowedFuelTypes = [
 const fuelTypePattern = allowedFuelTypes.join("|");
 
 module.exports = {
-  params: {
+  querystring: {
     type: "object",
     properties: {
+      lat: {type: "number"},
+      lon: {type: "number"},
+      distance: {
+        type: "number",
+        minimum: 10,
+        maximum: 20000
+      },
       fuelType: {
         type: "string",
         pattern: `^(${fuelTypePattern})(,(${fuelTypePattern}))*$`,
@@ -29,15 +36,16 @@ module.exports = {
         )}. Multiple values can be separated by commas.`
       }
     },
-    required: ["fuelType"]
+    required: ["lat", "lon", "fuelType"]
+    // Asegurarse de que fuelType sea requerido
   },
   response: {
-    200: {
-      type: "array",
-      items: {
-        $ref: "station-response-dto"
-      }
-    },
+    // 200: {
+    //   type: "array",
+    //   items: {
+    //     $ref: "station-response-dto"
+    //   }
+    // },
     400: {$ref: "bad-request"},
     404: {$ref: "not-found"},
     500: {$ref: "server-error"}

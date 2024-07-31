@@ -24,16 +24,18 @@ module.exports = fp(async (fastify, opts) => {
     }
   };
 
-  await refresh();
-  fastify.log.info("Data will be updated every 12 hours");
-  cron.schedule(
-    CRON_SCHEDULE,
-    async () => {
-      fastify.log.info("Updating data...");
-      await refresh();
-    },
-    {scheduled: true, timezone: TIMEZONE}
-  );
+  if (!opts.fetch.isTest) {
+    await refresh();
+    fastify.log.info("Data will be updated every 12 hours");
+    cron.schedule(
+      CRON_SCHEDULE,
+      async () => {
+        fastify.log.info("Updating data...");
+        await refresh();
+      },
+      {scheduled: true, timezone: TIMEZONE}
+    );
+  }
 
   fastify.decorate("fetchData", {refresh});
 });

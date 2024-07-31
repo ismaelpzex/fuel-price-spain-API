@@ -12,7 +12,7 @@ function config() {
 
 async function build() {
   const app = Fastify();
-
+  App.options.fetch.isTest = true;
   void app.register(fp(App), App.options);
   await app.ready();
 

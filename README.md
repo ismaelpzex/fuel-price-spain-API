@@ -144,13 +144,27 @@ La documentación detallada de la API se proporciona a través de [Scalar](https
 
     - **GET** `/fuel-type/:fuelType` - Recupera las estaciones de servicio por tipo de combustible.
 
-    - **Parámetros de Ruta**:
+    - **Query Parameters**:
       - `fuelType` (requerido) - El tipo de combustible de la estación de servicio. Los valores permitidos son: "biodiesel", "bioetanol", "gas-natural-comprimido", "gas-natural-licuado", "gases-licuados-del-petroleo", "gasoleo-a", "gasoleo-b", "gasoleo-premium", "gasolina-95-e10", "gasolina-95-e5", "gasolina-95-e5-premium", "gasolina-98-e10", "gasolina-98-e5", "hidrogeno". Se pueden enviar múltiples valores separados por comas.
 
     **Ejemplo de Solicitud**:
 
     ```bash
     curl -X GET "http://api.example.com/api/v1/fuel-type/gasolina-95-e5,gasoleo-a"
+    ```
+
+    - **GET** `/get-nearly-gas-stations-by-fuel-type"` - Recupera las estaciones de servicio más cercanas a una ubicación específica y las filtra por tipos de combustible.
+
+    - **Query Parameters**:
+      - `lat` (requerido) - La latitud de la ubicación.
+      - `lon` (requerido) - La longitud de la ubicación.
+      - `distance` (opcional) - El radio de búsqueda en kilómetros. El valor predeterminado es 5 kilómetros.
+      - `fuelType` (opcional) - El tipo de combustible de la estación de servicio. Los valores permitidos son: "biodiesel", "bioetanol", "gas-natural-comprimido", "gas-natural-licuado", "gases-licuados-del-petroleo", "gasoleo-a", "gasoleo-b", "gasoleo-premium", "gasolina-95-e10", "gasolina-95-e5", "gasolina-95-e5-premium", "gasolina-98-e10", "gasolina-98-e5", "hidrogeno". Se pueden enviar múltiples valores separados por comas.
+
+    **Ejemplo de Solicitud**:
+
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/get-nearly-gas-stations-by-fuel-type?lat=40.4165&lon=-3.70256&distance=10&fuelType=gasolina-95-e5,gasoleo-a"
     ```
 
 ## Licencia
@@ -319,6 +333,20 @@ Detailed API documentation is provided through [Scalar](https://docs.scalar.com)
 
     ```bash
     curl -X GET "http://api.example.com/api/v1/fuel-type/gasolina-95-e5,gasoleo-a"
+    ```
+
+    - **GET** `/get-nearly-gas-stations-by-fuel-type` - Retrieves the nearest gas stations to a specific location and filters them by fuel types.
+
+    - **Query Parameters**:
+      - `lat` (required) - The latitude of the location.
+      - `lon` (required) - The longitude of the location.
+      - `distance` (optional) - The search radius in kilometers. The default value is 5 kilometers.
+      - `fuelType` (optional) - The fuel type of the gas station. Allowed values are: "biodiesel", "bioethanol", "compressed-natural-gas", "liquefied-natural-gas", "liquefied-petroleum-gases", "diesel-a", "diesel-b", "premium-diesel", "gasoline-95-e10", "gasoline-95-e5", "gasoline-95-e5-premium", "gasoline-98-e10", "gasoline-98-e5", "hydrogen". Multiple values can be sent separated by commas.
+
+    **Request Example**:
+
+    ```bash
+    curl -X GET "http://api.example.com/api/v1/get-nearly-gas-stations-by-fuel-type?lat=40.4165&lon=-3.70256&distance=10&fuelType=gasoline-95-e5,diesel-a"
     ```
 
 ## License

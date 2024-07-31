@@ -69,7 +69,6 @@ module.exports = fp(async function (fastify, opts) {
   };
 
   const getStationsByFuelType = async (fuelTypes) => {
-
     const conditionals = fuelTypes.reduce((acc, curr, index) => {
       const condition = `${curr} != ''`;
       return index === 0 ? `WHERE ${condition}` : `${acc} AND ${condition}`;
@@ -85,12 +84,35 @@ module.exports = fp(async function (fastify, opts) {
     return rows;
   };
 
+  const getNearestGasStationsByFuelType = async ({lon, lat, distance = 5000, transformedFuelTypes}) => {
+    const conditionals = transformedFuelTypes.reduce((acc, curr, index) => {
+      const condition = `${curr} != ''`;
+      return index === 0 ? `AND ${condition}` : `${acc} AND ${condition}`;
+    }, "");
+
+    const query = `
+    SELECT *
+    FROM stations
+    WHERE ST_DWithin(
+      ST_SetSRID(ST_MakePoint(longitud, latitud), 4326)::geography,
+      ST_SetSRID(ST_MakePoint($1, $2), 4326)::geography,
+      $3
+    )
+    ${conditionals};
+  `;
+
+    const {rows} = await fastify.pg.query(query, [lon, lat, distance]);
+
+    return rows;
+  };
+
   fastify.decorate("stations", {
     getNearestGasStations,
     getStationById,
     getStationsByLocation,
     getStationsByMunicipality,
     getStationsByProvince,
-    getStationsByFuelType
+    getStationsByFuelType,
+    getNearestGasStationsByFuelType
   });
 });
