@@ -10,7 +10,7 @@ describe("getFuelType", () => {
     const fuelType = ["gas-natural-comprimido"];
     const result = getFuelType(fuelType);
 
-    expect(result).toEqual(["gas-natural-comprimido"]);
+    expect(result).toEqual(["precio_gas_natural_comprimido"]);
   });
 
   it("Should return an array", () => {
@@ -33,7 +33,7 @@ describe("getFuelType", () => {
   it("Should return only valid fuel types from a mixed array", () => {
     const fuelType = ["gas-natural-comprimido", "invalid-fuel"];
     const result = getFuelType(fuelType);
-    expect(result).toEqual(["gas-natural-comprimido"]);
+    expect(result).toEqual(["precio_gas_natural_comprimido"]);
   });
 
   it("Should return an error if no valid fuel types are found in a mixed array", () => {
@@ -44,13 +44,13 @@ describe("getFuelType", () => {
   it("Should handle duplicate fuel types correctly", () => {
     const fuelType = ["gas-natural-comprimido", "gas-natural-comprimido"];
     const result = getFuelType(fuelType);
-    expect(result).toEqual(["gas-natural-comprimido"]);
+    expect(result).toEqual(["precio_gas_natural_comprimido"]);
   });
 
   it("Should not be case-sensitive and return a valid fuel types", () => {
     const fuelType = ["GAS-NATURAL-COMPRIMIDO"];
     const result = getFuelType(fuelType);
-    expect(result).toEqual(["gas-natural-comprimido"]);
+    expect(result).toEqual(["precio_gas_natural_comprimido"]);
   });
 
    it("Should return an error if the array contains non-string values", () => {
@@ -61,6 +61,6 @@ describe("getFuelType", () => {
    it("Should return a valid fuel type if the array contains stings with accents and upper case", () => {
      const fuelType = ["Gás-Natural-Comprimido"];
      const result = getFuelType(fuelType);
-     expect(result).toEqual(["gas-natural-comprimido"]);
+     expect(result).toEqual(["precio_gas_natural_comprimido"]);
    });
 });
