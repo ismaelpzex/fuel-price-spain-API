@@ -24,9 +24,9 @@ clean:
 	esac
 
 tdd-e2e-fuel-price:
-	@echo "Running tdd for fuel-price"
+	@echo "\033[0;32mRunning tests e2e for fuel-price\033[0m"
 	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml -f docker-compose.e2e.yml up fuel-price
 
 tdd-unit-fuel-price:
-	@echo "Running unit tests for fuel-price"
+	@echo "\033[0;32mRunning unit tests for fuel-price\033[0m"
 	@${DOCKER_COMPOSE_COMMAND} -f docker-compose.yml -f docker-compose.unit.yml up fuel-price
