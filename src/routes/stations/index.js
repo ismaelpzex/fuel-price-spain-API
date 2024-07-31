@@ -5,7 +5,8 @@ const {
   getGasStationsByLocation,
   getGasStationsByMunicipality,
   getGasStationsByProvince,
-  getGasStationsByFuelType
+  getGasStationsByFuelType,
+  getNearestGasStationsByFuelType
 } = require("./handlers");
 
 //Schemas
@@ -15,7 +16,8 @@ const {
   getGasStationsByLocationSchema,
   getGasStationsByMunicipalitySchema,
   getGasStationsByProvinceSchema,
-  getGasStationsByFuelTypeSchema
+  getGasStationsByFuelTypeSchema,
+  getNearestGasStationByFuelTypeSchema
 } = require("./schemas");
 
 module.exports = async function (fastify, opts) {
@@ -95,5 +97,18 @@ module.exports = async function (fastify, opts) {
       ...getGasStationsByFuelTypeSchema
     },
     handler: getGasStationsByFuelType
+  });
+
+  fastify.route({
+    method: "GET",
+    url: "/get-nearly-gas-stations-by-location",
+    schema: {
+      summary: "Get nearest gas stations by fuel type",
+      description:
+        "This endpoint allows obtaining the nearest gas stations to a specific location. The location is determined by the query parameters lat (latitude) and lon (longitude). Additionally, an optional distance parameter can be specified to limit the search radius in kilometers. The default value for distance is 5 kilometers. The endpoint also allows filtering the results by specified fuel types using the fuelType query parameter.",
+      tags: ["stations"],
+      ...getNearestGasStationByFuelTypeSchema
+    },
+    handler: getNearestGasStationsByFuelType
   });
 };
