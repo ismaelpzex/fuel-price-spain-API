@@ -101,7 +101,7 @@ module.exports = async function (fastify, opts) {
 
   fastify.route({
     method: "GET",
-    url: "/get-nearly-gas-stations-by-location",
+    url: "/get-nearly-gas-stations-by-fuel-type",
     schema: {
       summary: "Get nearest gas stations by fuel type",
       description:
