@@ -153,7 +153,7 @@ La documentación detallada de la API se proporciona a través de [Scalar](https
     curl -X GET "http://api.example.com/api/v1/fuel-type/gasolina-95-e5,gasoleo-a"
     ```
 
-    - **GET** `/nearest-gas-stations` - Recupera las estaciones de servicio más cercanas a una ubicación específica y las filtra por tipos de combustible.
+    - **GET** `/get-nearly-gas-stations-by-fuel-type"` - Recupera las estaciones de servicio más cercanas a una ubicación específica y las filtra por tipos de combustible.
 
     - **Query Parameters**:
       - `lat` (requerido) - La latitud de la ubicación.
@@ -335,7 +335,7 @@ Detailed API documentation is provided through [Scalar](https://docs.scalar.com)
     curl -X GET "http://api.example.com/api/v1/fuel-type/gasolina-95-e5,gasoleo-a"
     ```
 
-    - **GET** `/nearest-gas-stations` - Retrieves the nearest gas stations to a specific location and filters them by fuel types.
+    - **GET** `/get-nearly-gas-stations-by-fuel-type` - Retrieves the nearest gas stations to a specific location and filters them by fuel types.
 
     - **Query Parameters**:
       - `lat` (required) - The latitude of the location.
