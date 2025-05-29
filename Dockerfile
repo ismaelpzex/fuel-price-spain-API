@@ -1,20 +1,19 @@
-# Use a node image from Docker Hub
-FROM node:22-alpine
+FROM node:22-alpine AS deps
 
-# Set the working directory in the container to /usr/src/app
 WORKDIR /usr/src/app
 
-# Install the fastify-cli globally in the container
-RUN npm install -g fastify-cli
-
-# Copy package.json and package-lock.json (if available)
 COPY package*.json ./
+RUN npm install --production
 
-# Install the npm dependencies specified in package.json
-RUN npm install
+FROM node:22-alpine
 
-# Copy the rest of the code to the container
+WORKDIR /usr/src/app
+
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+COPY package*.json ./
 COPY src ./src
+COPY assets ./assets
 
-# Set the command to be run when the container starts
-CMD [ "npm", "run", "dev" ]
+EXPOSE 3000
+
+CMD ["npm", "run", "start"]
