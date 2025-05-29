@@ -1,7 +1,5 @@
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-
 CREATE EXTENSION IF NOT EXISTS "postgis";
-
 CREATE EXTENSION IF NOT EXISTS "unaccent";
 
 CREATE TABLE stations (
@@ -14,8 +12,14 @@ CREATE TABLE stations (
     localidad VARCHAR(255),
     margen VARCHAR(1),
     municipio VARCHAR(100),
+
+    precio_adblue VARCHAR(10),
+    precio_amoniaco VARCHAR(10),
     precio_biodiesel VARCHAR(10),
     precio_bioetanol VARCHAR(10),
+    precio_biogas_natural_comprimido VARCHAR(10),
+    precio_biogas_natural_licuado VARCHAR(10),
+    precio_diesel_renovable VARCHAR(10),
     precio_gas_natural_comprimido VARCHAR(10),
     precio_gas_natural_licuado VARCHAR(10),
     precio_gases_licuados_del_petroleo VARCHAR(10),
@@ -23,11 +27,16 @@ CREATE TABLE stations (
     precio_gasoleo_b VARCHAR(10),
     precio_gasoleo_premium VARCHAR(10),
     precio_gasolina_95_e10 VARCHAR(10),
+    precio_gasolina_95_e25 VARCHAR(10),
     precio_gasolina_95_e5 VARCHAR(10),
     precio_gasolina_95_e5_premium VARCHAR(10),
+    precio_gasolina_95_e85 VARCHAR(10),
     precio_gasolina_98_e10 VARCHAR(10),
     precio_gasolina_98_e5 VARCHAR(10),
+    precio_gasolina_renovable VARCHAR(10),
     precio_hidrogeno VARCHAR(10),
+    precio_metanol VARCHAR(10),
+
     provincia VARCHAR(100),
     remision VARCHAR(255),
     rotulo VARCHAR(255),

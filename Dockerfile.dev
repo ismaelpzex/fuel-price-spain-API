@@ -8,9 +8,9 @@ WORKDIR /usr/src/app
 RUN npm install -g fastify-cli
 
 # Add the code to the container
-ADD src ./src
-ADD test ./test
-ADD package.json .
+COPY src ./src
+COPY test ./test
+COPY package.json .
 
 # Install the npm dependencies specified in package.json
 RUN npm install
